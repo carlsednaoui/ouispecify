@@ -8,11 +8,13 @@
       parsedCSS = parseCSS(text);
 
       for (var i=0; i < parsedCSS.length; i++) {
-        currentEl = parsedCSS[i];
+        var currentEl = parsedCSS[i];
 
         if (currentEl.charAt(0) === '#') {
           firstPosition.push(currentEl);
-        } else if (pseudoClasses.indexOf(currentEl) !== -1 || currentEl.charAt(0) === '[' || currentEl.charAt(0) === '.') {
+        } else if (pseudoClasses.indexOf(currentEl) !== -1 ||
+                   currentEl.charAt(0) === '[' ||
+                   currentEl.charAt(0) === '.') {
           secondPosition.push(currentEl);
         } else {
           thirdPosition.push(currentEl);
@@ -27,22 +29,23 @@
     var parsedCSS = [];
 
     for (var i=0; i < cssArray.length; i++) {
-      var currentEl = cssArray[i];
-      currentEl = currentEl.replace('*', '');
 
-      // If the currentEl has specific selectors, push those
+      // Remove the * selector
+      var currentEl = cssArray[i].replace('*', '');
+
+      // If currentEl has specific selectors push those to parsedCSS.
       while(findNextPosition(currentEl)) {
         var nextPosition = findNextPosition(currentEl);
         parsedCSS.push(currentEl.substr(0, nextPosition));
         currentEl = currentEl.substr(nextPosition);
       }
 
-      // Push the remaining, last, selector
+      // Push the remaining (last) selector to parsedCSS.
       parsedCSS.push(currentEl);
     }
 
     // Remove these charaters
-    var charsToRemove = ['+', '~', '>', '<', ':not', ':'];
+    var charsToRemove = ['+', '~', '>', '<', ':not', ':', ''];
     parsedCSS = parsedCSS.filter(function(el) {
       return charsToRemove.indexOf(el) === -1;
     });
@@ -56,17 +59,17 @@
   }
 
   function findNextPosition(text) {
-    var delimiters = ['.', '#', '[', ':', '+', '('];
-    var positions = [];
+    var delimiters  = ['.', '#', '[', ':', '+', '('],
+        positions   = [],
+        textMinusOne;
 
-    // Remove the 1st char, in case it's an ID OR class
-    // This makes sure that 0 is not returned
-    var text = text.substr(1);
+    // Remove the 1st char. This makes sure that 0 is not returned.
+    textMinusOne = text.substr(1);
 
-    delimiters.map(function(splitEl) {
-      // Push the first instance for each of the delimiters
-      // Add the 1 characted back in
-      text.indexOf(splitEl) !== -1 ? positions.push(text.indexOf(splitEl) + 1) : '';
+    delimiters.map(function(delimeter) {
+      // Push the first instance for each of the delimiters.
+      // Add one back to textMinusOne.
+      textMinusOne.indexOf(delimeter) !== -1 ? positions.push(textMinusOne.indexOf(delimeter) + 1) : '';
     });
 
     // return the smallest one
@@ -92,11 +95,7 @@
                        ':disabled'];
 })(this);
 
-
-
-
-
-
+// Maybe I'll use this one day. Maybe.
 // var pseudoElements = [':after',
 //                       ':before',
 //                       '::first-letter',
@@ -105,10 +104,3 @@
 //                       ':first-letter',
 //                       ':first-line',
 //                       ':selection'];
-
-// http://vimeo.com/26784202
-// http://www.youtube.com/watch?v=oY59wZdCDo0&feature=youtube_gdata_player
-
-
-// build a regex parser (speak with Alan)
-// build a game in JS
