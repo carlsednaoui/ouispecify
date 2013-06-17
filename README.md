@@ -3,7 +3,9 @@ Simple call specify() with your css selectors.
 
 ## Example
     specify('h1#title');                // returns 1.0.1
-    specify("h1:first-child[checked]"); // returns 0.2.1;
+    specify('h1:first-child[checked]'); // returns 0.2.1
+    specity('#s12:not(FOO)');           // returns 1.0.1
+    specify('li.red.level');            // returns 0.2.1
 
 
 ## Resources
