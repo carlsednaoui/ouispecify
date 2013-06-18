@@ -1,14 +1,40 @@
 body {
-  font-family: helvetica;
-  font-size: 2em;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-size: 16px;
   padding: 20px;
 }
 
 input[type=text] {
-  font-size: 1.2em;
   border: none;
   background-color: #A7A8FF;
   padding: 4px;
   width: 700px;
+  font-size: 30px;
+  border-radius: 3px;
+}
 
+label[for="css-selectors"] {
+  font-size: 30px;
+}
+
+.specificity-result {
+  display: inline-block;
+  float: left;
+  border: 1px solid #000;
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.specificity-label {
+  display: inline-block;
+  height: 40px;
+}
+
+#id-specificity, #class-specificity, #type-specificity {
+  display: block;
+  font-size: 80px;
+  margin-bottom: 20px;
 }

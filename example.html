@@ -7,9 +7,28 @@
 
   <body>
     <form id="specify">
-      CSS selector: <input type="text" name="css-selectors" id="css-selectors">
+      <label for="css-selectors">CSS selector: </label>
+      <input type="text" name="css-selectors" id="css-selectors">
     </form>
     
+    <div class="specificity-result">
+      <span class="specificity-label">ID selectors</span>
+      <span id="id-specificity">0</span>
+      <span id="id-specificity-details">h1 love me</span>
+    </div>
+
+    <div class="specificity-result">
+      <span class="specificity-label">Class selectors, attributes selectors & pseudo-classes</span>
+      <span id="class-specificity">0</span>
+      <span id="class-specificity-details">h1 love me</span>
+    </div>
+
+    <div class="specificity-result">
+      <span class="specificity-label">Type selectors & pseudo-elements</span>
+      <span id="type-specificity">0</span>
+      <span id="type-specificity-details">h1 love me</span>
+    </div>
+
     <p id="result"></p>
 
     <script src="ouispecify.js"></script>
