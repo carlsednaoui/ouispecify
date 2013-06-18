@@ -1,64 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640" />
-
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
     <title>Ouispecify by carlsednaoui</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
-    <a id="forkme_banner" href="https://github.com/carlsednaoui/ouispecify">View on GitHub</a>
-    <div class="shell">
-
+    <div class="wrapper">
       <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Ouispecify</h1>
-            <h2>A simple CSS specificity calculator</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
+        <h1>Ouispecify</h1>
+        <p>A simple CSS specificity calculator</p>
+
+        <p class="view"><a href="https://github.com/carlsednaoui/ouispecify">View the Project on GitHub <small>carlsednaoui/ouispecify</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/carlsednaoui/ouispecify/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/carlsednaoui/ouispecify/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/carlsednaoui/ouispecify">View On <strong>GitHub</strong></a></li>
+        </ul>
       </header>
-
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/carlsednaoui/ouispecify/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/carlsednaoui/ouispecify/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
-
-
-      <span class="banner-fix"></span>
-
-
-      <section id="main_content">
+      <section>
         <h1>
-<a name="a-simple-css-specificity-calculator-built-in-js" class="anchor" href="#a-simple-css-specificity-calculator-built-in-js"><span class="octicon octicon-link"></span></a>A Simple CSS Specificity Calculator Built in JS</h1>
+<a name="a-simple-css-specificity-calculator" class="anchor" href="#a-simple-css-specificity-calculator"><span class="octicon octicon-link"></span></a>A Simple CSS Specificity Calculator</h1>
 
-<p>Simple call specify() with your css selectors.</p>
+<p>Call specify() with your css selectors, you'll receive an object with both the specificity number &amp; the details.</p>
 
 <h2>
 <a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h2>
 
-<pre><code>specify('h1#title');                // returns 1.0.1
-specify('h1:first-child[checked]'); // returns 0.2.1
-specity('#s12:not(FOO)');           // returns 1.0.1
-specify('li.red.level');            // returns 0.2.1
+<pre><code>specify('h1#title');                
+// returns {specificity: [1,0,1],
+            details: [['#title'],[],['h1']]};
 </code></pre>
+
+<h2>
+<a name="live-example" class="anchor" href="#live-example"><span class="octicon octicon-link"></span></a>Live example</h2>
+
+<p><a href="http://carlsednaoui.github.io/ouispecify/example.html">Here is a live example</a>.</p>
+
+<h2>
+<a name="project-page" class="anchor" href="#project-page"><span class="octicon octicon-link"></span></a>Project page</h2>
+
+<p>Here is the <a href="http://carlsednaoui.github.io/ouispecify/">official project page</a>.</p>
 
 <h2>
 <a name="resources" class="anchor" href="#resources"><span class="octicon octicon-link"></span></a>Resources</h2>
@@ -67,23 +58,17 @@ specify('li.red.level');            // returns 0.2.1
 <li><a href="http://www.w3.org/TR/selectors/">W3</a></li>
 <li><a href="http://css-tricks.com/specifics-on-css-specificity/">CSS Tricks</a></li>
 <li><a href="http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">Smashing Magazine</a></li>
-</ul>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="http://opensource.org/licenses/MIT">MIT</a></p>
       </section>
-
       <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/carlsednaoui">carlsednaoui</a> can be found on <a href="https://github.com/carlsednaoui/ouispecify">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
+        <p>This project is maintained by <a href="https://github.com/carlsednaoui">carlsednaoui</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
-
     </div>
-
+    <script src="javascripts/scale.fix.js"></script>
     
   </body>
 </html>
