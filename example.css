@@ -2,6 +2,17 @@ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   font-size: 16px;
   padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1, h2 {
+  font-weight: normal;
+  text-align: center;
+}
+
+#specify {
+  margin-top: 80px;
 }
 
 input[type=text] {
@@ -19,12 +30,11 @@ label[for="css-selectors"] {
 
 .specificity-result {
   display: inline-block;
-  float: left;
   border: 1px solid #000;
   height: 200px;
   width: 200px;
-  margin: 20px;
-  padding: 10px;
+  margin: 40px;
+  padding: 20px;
   text-align: center;
 }
 

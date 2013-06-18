@@ -21,7 +21,10 @@
         }
       }
 
-      return firstPosition.length + ',' + secondPosition.length + ',' + thirdPosition.length;
+      return {specificity: [firstPosition.length,
+                            secondPosition.length,
+                            thirdPosition.length],
+              details: [firstPosition, secondPosition, thirdPosition]};
     };
 
   function parseCSS(text) {

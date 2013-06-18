@@ -6,6 +6,8 @@
   </head>
 
   <body>
+    <h1>OuiSpecify - CSS Specificity Calculator</h1>
+    <h2>Easily calculate the specificity of your CSS selector</h2>
     <form id="specify">
       <label for="css-selectors">CSS selector: </label>
       <input type="text" name="css-selectors" id="css-selectors">
@@ -14,23 +16,27 @@
     <div class="specificity-result">
       <span class="specificity-label">ID selectors</span>
       <span id="id-specificity">0</span>
-      <span id="id-specificity-details">h1 love me</span>
+      <span id="id-specificity-details">-</span>
     </div>
 
     <div class="specificity-result">
       <span class="specificity-label">Class selectors, attributes selectors & pseudo-classes</span>
       <span id="class-specificity">0</span>
-      <span id="class-specificity-details">h1 love me</span>
+      <span id="class-specificity-details">-</span>
     </div>
 
     <div class="specificity-result">
       <span class="specificity-label">Type selectors & pseudo-elements</span>
       <span id="type-specificity">0</span>
-      <span id="type-specificity-details">h1 love me</span>
+      <span id="type-specificity-details">-</span>
     </div>
 
-    <p id="result"></p>
+    <div id="credit">
+      <p>Huge thanks to <a href="https://github.com/lauren">Lauren</a> for motivating me to do this.</p>
+      <p>Code & design inspired by <a href="http://specificity.keegan.st/">Keegan's Specificity Calculator</a> and <a href="http://lauren.github.io/CSS-specify-me/">Lauren's CSS Specify Me</a></p>
+      <p>Project completed at <a href="https://www.hackerschool.com/">Hacker School</a></p>
 
+    </div>
     <script src="ouispecify.js"></script>
     <script src="example.js"></script>
   </body>
