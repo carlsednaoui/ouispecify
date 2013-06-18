@@ -4,13 +4,6 @@ body {
   padding: 20px;
 }
 
-input[type=submit] {
-  background-color: salmon;
-  padding: 20px;
-  border: none;
-  vertical-align: top;
-}
-
 input[type=text] {
   font-size: 1.2em;
   border: none;
