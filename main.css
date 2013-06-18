@@ -13,4 +13,9 @@ input[type=submit] {
 
 input[type=text] {
   font-size: 1.2em;
+  border: none;
+  background-color: #A7A8FF;
+  padding: 4px;
+  width: 700px;
+
 }
