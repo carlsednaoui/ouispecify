@@ -21,7 +21,7 @@
         }
       }
 
-      return firstPosition.length + '.' + secondPosition.length + '.' + thirdPosition.length;
+      return firstPosition.length + ',' + secondPosition.length + ',' + thirdPosition.length;
     };
 
   function parseCSS(text) {
