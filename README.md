@@ -1,12 +1,12 @@
-# A Simple CSS Specificity Calculator Built in JS
-Simple call specify() with your css selectors. You'll receive an object with both the specificity number & the details.
+# A Simple CSS Specificity Calculator
+Call specify() with your css selectors, you'll receive an object with both the specificity number & the details.
 
 ## Example
     specify('h1#title');                
     // returns {specificity: [1,0,1],
                 details: [['#title'],[],['h1']]};
 
-## Live example - Specificity Calculator
+## Live example
 [Here is a live example](http://carlsednaoui.github.io/ouispecify/example.html).
 
 ## Project page
