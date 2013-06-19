@@ -6,11 +6,9 @@ Call specify() with your css selectors, you'll receive an object with both the s
     // returns {specificity: [1,0,1],
                 details: [['#title'],[],['h1']]};
 
-## Live example
-[Here is a live example](http://carlsednaoui.github.io/ouispecify/example.html).
-
-## Project page
-Here is the [official project page](http://carlsednaoui.github.io/ouispecify/).
+## Project Page & Live example
+- Here is the [official project page](http://carlsednaoui.github.io/ouispecify/)
+- [Specificity Calculator: a live example](http://carlsednaoui.github.io/ouispecify/example.html)
 
 ## Resources
 - [W3](http://www.w3.org/TR/selectors/)
@@ -18,11 +16,26 @@ Here is the [official project page](http://carlsednaoui.github.io/ouispecify/).
 - [Smashing Magazine](http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/)
 
 ## Tests
-Tests use the Jasmine framework. Start a web server:
+Tests use the Jasmine framework. To play around with the tests you'll need to start a web server:
     
     python -m SimpleHTTPServer
 
-Now navigate to [http://localhost:8000/test](http://localhost:8000/test)
+And then navigate to [http://localhost:8000/test](http://localhost:8000/test).
+
+## Tree
+    .
+    ├── README.md
+    ├── ouispecify.js
+    └── test
+        ├── index.html
+        ├── lib
+        │   └── jasmine-1.3.1
+        │       ├── MIT.LICENSE
+        │       ├── jasmine-html.js
+        │       ├── jasmine.css
+        │       └── jasmine.js
+        └── spec
+            └── ouispecify.spec.js
 
 ## License
 [MIT](http://opensource.org/licenses/MIT)
