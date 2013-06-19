@@ -29,7 +29,7 @@ label[for="css-selectors"] {
 }
 
 .specificity-result {
-  display: inline-block;
+  float: left;
   border: 1px solid #000;
   height: 200px;
   width: 200px;
@@ -49,8 +49,23 @@ label[for="css-selectors"] {
   margin-bottom: 20px;
 }
 
-/*This is a total hack, need to figure this one out.*/
-#id-specificity-details:before, #class-specificity-details:before, #type-specificity-details:before {
+.clearfix:after {
   content: ".";
-  color: white;
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+ 
+.clearfix {
+  display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+  display: block;
+}
+ 
+* html .clearfix {
+  height: 1%;
 }
