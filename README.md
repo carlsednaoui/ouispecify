@@ -37,5 +37,8 @@ And then navigate to [http://localhost:8000/test](http://localhost:8000/test).
         └── spec
             └── ouispecify.spec.js
 
+## Thanks
+Special thanks to [Lauren](https://github.com/lauren) and [Tom](https://github.com/tbuchok).
+
 ## License
 [MIT](http://opensource.org/licenses/MIT)
