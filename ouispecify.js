@@ -2,24 +2,17 @@
     exports.specify = function(text) {
       var firstPosition   = [],
           secondPosition  = [],
-          thirdPosition   = [],
-          parsedCSS;
+          thirdPosition   = [];
 
-      parsedCSS = parseCSS(text);
-
-      for (var i=0; i < parsedCSS.length; i++) {
-        var currentEl = parsedCSS[i];
-
-        if (currentEl.charAt(0) === '#') {
+      parseCSS(text).forEach(function(currentEl) {
+        if (/^#/.test(currentEl)) {
           firstPosition.push(currentEl);
-        } else if (pseudoClasses.indexOf(currentEl) !== -1 ||
-                   currentEl.charAt(0) === '[' ||
-                   currentEl.charAt(0) === '.') {
+        } else if (pseudoSelectorsRegEx.test(currentEl) || /^(\[|\.)/.test(currentEl)) {
           secondPosition.push(currentEl);
         } else {
           thirdPosition.push(currentEl);
         }
-      }
+      });
 
       return {specificity: [firstPosition.length,
                             secondPosition.length,
@@ -28,82 +21,35 @@
     };
 
   function parseCSS(text) {
-    var cssArray = text.split(' ');
-    var parsedCSS = [];
+    // excluders = ['+', '~', '>', '<', ':not'];
+    var excluders = /\+|~|>|<|:not\(|/;
 
-    for (var i=0; i < cssArray.length; i++) {
+    // delimiters  = ['.', '#', '[', ':', '+', '(']
+    // we're using a look ahead
+    var matchers = /(\.|#|\[|\:|\:\:|\+|\()?[\w\]\=\-]+/g;
 
-      // Remove the * selector
-      var currentEl = cssArray[i].replace('*', '');
-
-      // If currentEl has specific selectors push those to parsedCSS.
-      while(findNextPosition(currentEl)) {
-        var nextPosition = findNextPosition(currentEl);
-        parsedCSS.push(currentEl.substr(0, nextPosition));
-        currentEl = currentEl.substr(nextPosition);
-      }
-
-      // Push the remaining (last) selector to parsedCSS.
-      parsedCSS.push(currentEl);
-    }
-
-    // Remove these charaters
-    var charsToRemove = ['+', '~', '>', '<', ':not', ':', ''];
-    parsedCSS = parsedCSS.filter(function(el) {
-      return charsToRemove.indexOf(el) === -1;
-    });
-
-    return parsedCSS;
+    return text.split(excluders).join('').match(matchers);
   }
 
-  // Used to sort numbers in the findNextPosition fn
-  function sortNumber(a,b) {
-      return a - b;
-  }
+  var PSEUDO_SELECTORS = [':link',
+                          ':visited',
+                          ':active',
+                          ':hover',
+                          ':focus',
+                          ':first-child',
+                          ':nth-child',
+                          ':nth-last-child',
+                          ':nth-of-type',
+                          ':first-of-type',
+                          ':last-of-type',
+                          ':empty',
+                          ':target',
+                          ':checked',
+                          ':enabled',
+                          ':disabled'];
 
-  function findNextPosition(text) {
-    var delimiters  = ['.', '#', '[', ':', '+', '('],
-        positions   = [],
-        textMinusOne;
+    var pseudoSelectorsRegEx = new RegExp('(' + PSEUDO_SELECTORS.map(function(p) {
+      return '\\' + p;
+    }).join('|') + ')');
 
-    // Remove the 1st char. This makes sure that 0 is not returned.
-    textMinusOne = text.substr(1);
-
-    delimiters.map(function(delimeter) {
-      // Push the first instance for each of the delimiters.
-      // Add one back to textMinusOne.
-      textMinusOne.indexOf(delimeter) !== -1 ? positions.push(textMinusOne.indexOf(delimeter) + 1) : '';
-    });
-
-    // return the smallest one
-    var smallestEl = positions.sort(sortNumber).shift();
-    return smallestEl === undefined ? false : smallestEl;
-  }
-
-  var pseudoClasses = [':link',
-                       ':visited',
-                       ':active',
-                       ':hover',
-                       ':focus',
-                       ':first-child',
-                       ':nth-child',
-                       ':nth-last-child',
-                       ':nth-of-type',
-                       ':first-of-type',
-                       ':last-of-type',
-                       ':empty',
-                       ':target',
-                       ':checked',
-                       ':enabled',
-                       ':disabled'];
 })(this);
-
-// Maybe I'll use this one day. Maybe.
-// var pseudoElements = [':after',
-//                       ':before',
-//                       '::first-letter',
-//                       '::first-line',
-//                       '::selection',
-//                       ':first-letter',
-//                       ':first-line',
-//                       ':selection'];
