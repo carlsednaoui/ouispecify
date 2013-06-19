@@ -1,5 +1,6 @@
 ;(function(exports) {
     exports.specify = function(text) {
+      if (text === '') {return;}
       var firstPosition   = [],
           secondPosition  = [],
           thirdPosition   = [];
@@ -25,6 +26,7 @@
     var excluders = /\+|~|>|<|:not\(|/;
 
     // delimiters  = ['.', '#', '[', ':', '+', '(']
+    // we're getting rid of extra spaces by not returning them
     // we're using a look ahead
     var matchers = /(\.|#|\[|\:|\:\:|\+|\()?[\w\]\=\-]+/g;
 

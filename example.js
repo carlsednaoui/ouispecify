@@ -1,5 +1,5 @@
 window.onkeyup = function() {
-  specificity = getCSSSpecificity();
+  var specificity = getCSSSpecificity();
   updateSpecificityNumber(specificity);
   updateSpecificityDetails(specificity);
 };
