@@ -23,7 +23,7 @@
 
   function parseCSS(text) {
     // excluders = ['+', '~', '>', '<', ':not'];
-    var excluders = /\+|~|>|<|:not\(|/;
+    var excluders = /\+|~|>|<|:not\(/;
 
     // delimiters  = ['.', '#', '[', ':', '+', '(']
     // we're getting rid of extra spaces by not returning them
