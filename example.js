@@ -1,4 +1,5 @@
 window.onkeyup = function() {
+  if (document.getElementById('css-selectors').value === '') { return; }
   var specificity = getCSSSpecificity();
   updateSpecificityNumber(specificity);
   updateSpecificityDetails(specificity);
